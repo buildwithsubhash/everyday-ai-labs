@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin · Everyday AI Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="panel">
+  <header class="top">
+    <h1>Everyday AI Labs admin</h1>
+    <div class="actions">
+      <a class="btn ghost small" href="../index.html?preview=1" target="_blank" rel="noopener">Preview draft</a>
+      <button id="publish" class="btn small" type="button">Publish to live site</button>
+    </div>
+  </header>
+  <p class="note">Add or edit products below, then click <strong>Publish</strong>. The admin saves <code>products.json</code> to your GitHub repo and GitHub Pages updates the live site in 1 to 2 minutes. <span id="dirty" class="dirty" hidden>You have unpublished changes.</span></p>
+  <p id="status" class="status" role="status"></p>
+
+  <details id="gh" class="box gh">
+    <summary>GitHub connection</summary>
+    <p class="muted small-t">Create a fine-grained token at GitHub &rarr; Settings &rarr; Developer settings &rarr; Personal access tokens. Limit it to this one repository with <strong>Contents: Read and write</strong>. Only someone with this token can publish.</p>
+    <div class="two">
+      <label>GitHub username <input id="ghOwner" autocomplete="off" placeholder="yourname"></label>
+      <label>Repository <input id="ghRepo" autocomplete="off" placeholder="everyday-ai-labs"></label>
+    </div>
+    <div class="two">
+      <label>Branch <input id="ghBranch" autocomplete="off" value="main"></label>
+      <label>Access token <input id="ghToken" type="password" autocomplete="off" placeholder="github_pat_..."></label>
+    </div>
+    <label class="check"><input id="ghRemember" type="checkbox"> Remember token on this device</label>
+  </details>
+
+  <div class="cols">
+    <form id="form" class="box">
+      <h2 id="formTitle">Add item</h2>
+      <input type="hidden" id="id">
+      <div class="two">
+        <label>Type <select id="type"><option value="product">Gumroad product</option><option value="tool">AI tool</option><option value="site">Useful website</option></select></label>
+        <label>Access (products) <select id="access"><option value="premium">Premium</option><option value="free">Free</option></select></label>
+      </div>
+      <label>Title <input id="title" required maxlength="80"></label>
+      <label>Short line (cards and top of page) <input id="tagline" maxlength="200" required></label>
+      <label>Long description (blank line between paragraphs) <textarea id="description" rows="6"></textarea></label>
+      <label>What is included (one per line) <textarea id="features" rows="4"></textarea></label>
+      <label>Preview image URLs (one per line, optional) <textarea id="gallery" rows="2"></textarea></label>
+      <label>Buyer reviews (one per line: Quote | Name) <textarea id="reviews" rows="2"></textarea></label>
+      <label>FAQ (one per line: Question | Answer) <textarea id="faq" rows="3"></textarea></label>
+      <div class="two">
+        <label>Regular price (or label, e.g. Free plan) <input id="price" placeholder="$19" required maxlength="20"></label>
+        <label>Discounted price (optional) <input id="salePrice" placeholder="$12" maxlength="20"></label>
+      </div>
+      <div class="two">
+        <label>Sale ends (optional) <input id="saleEnds" type="date"></label>
+        <label>Gumroad discount code (optional) <input id="code" maxlength="40"></label>
+      </div>
+      <div class="two">
+        <label>Details line (e.g. 68 pages. PDF) <input id="meta" maxlength="80"></label>
+        <label>Category (pick or type a new one) <input id="category" maxlength="30" list="cats"><datalist id="cats"></datalist></label>
+      </div>
+      <div class="two">
+        <label>Tags for search (comma separated) <input id="tags" maxlength="80"></label>
+        <label>Best for (tools and websites) <input id="why" maxlength="120"></label>
+      </div>
+      <label>Link (Gumroad product or tool website) <input id="url" type="url" placeholder="https://..." required></label>
+      <div class="two">
+        <label>Badge (optional) <input id="badge" placeholder="Best seller" maxlength="20"></label>
+        <div><label class="check"><input id="featured" type="checkbox"> Feature this item</label><label class="check"><input id="hidden" type="checkbox"> Hide from site</label></div>
+      </div>
+      <label>Cover image URL (optional) <input id="image" type="url" placeholder="https://..."></label>
+      <p id="formErr" class="err" role="alert"></p>
+      <div class="actions">
+        <button class="btn" type="submit" id="save">Add item</button>
+        <button class="btn ghost" type="button" id="cancel" hidden>Cancel edit</button>
+      </div>
+    </form>
+
+    <div class="box">
+      <h2>Listed items <span id="count" class="muted"></span></h2>
+      <ul id="list" class="list"></ul>
+      <div class="actions">
+        <button id="download" class="btn ghost small" type="button">Download backup</button>
+        <label class="btn ghost small">Import file<input id="import" type="file" accept="application/json" hidden></label>
+        <button id="reset" class="btn ghost small danger" type="button">Discard draft</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>
