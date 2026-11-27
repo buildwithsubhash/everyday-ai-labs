@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var E = EAL, el = E.el, items = [], q = "", LIMIT = 6;
+  var E = EAL, el = E.el, items = [], q = "", LIMIT = 4;
   var MODE = document.body.dataset.type || "";
   var TYPES = MODE ? [MODE] : ["product", "tool", "site"];
   var $ = function (id) { return document.getElementById(id); };
