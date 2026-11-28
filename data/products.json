@@ -19,9 +19,10 @@
     "meta": "Free download. Pay what you want.",
     "category": "Pinterest",
     "url": "https://everydayailabs.gumroad.com/l/PinterestStarterKit",
-    "image": "",
+    "image": "https://public-files.gumroad.com/kriagd60m1v1ebs1z9c5xfgtotod",
     "badge": "Free",
-    "featured": true
+    "featured": true,
+    "hidden": false
   },
   {
     "id": "pinterest-digital-product-business-toolkit",
@@ -141,9 +142,10 @@
     "meta": "Free download. Pay what you want.",
     "category": "Prompts",
     "url": "https://everydayailabs.gumroad.com/l/500prompts",
-    "image": "",
+    "image": "https://public-files.gumroad.com/vp22dgfozypn4ibxxmpjr7xd1hha",
     "badge": "Free",
-    "featured": true
+    "featured": true,
+    "hidden": false
   },
   {
     "id": "ai-automation-sop-bundle",
@@ -165,9 +167,10 @@
     "meta": "Starting at $19.90. See Gumroad for the options.",
     "category": "Automation",
     "url": "https://everydayailabs.gumroad.com/l/AIAutomationSOPBundle",
-    "image": "",
+    "image": "https://public-files.gumroad.com/5wsix1gv8slio7qemhwnonodvuwp",
     "badge": "",
-    "featured": false
+    "featured": false,
+    "hidden": false
   },
   {
     "id": "lazy-student-productivity-playbook",
@@ -189,9 +192,10 @@
     "meta": "Starting at $4.99. See Gumroad for the options.",
     "category": "Productivity",
     "url": "https://everydayailabs.gumroad.com/l/lazystudentproductivityplaybook",
-    "image": "",
+    "image": "https://public-files.gumroad.com/8vwndiuhmq4xi9sy8upw6nei9x2b",
     "badge": "",
-    "featured": false
+    "featured": false,
+    "hidden": false
   },
   {
     "id": "claude",
