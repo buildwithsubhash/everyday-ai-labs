@@ -68,9 +68,10 @@
     "meta": "Starting at $14.99. See Gumroad for the options.",
     "category": "Marketing",
     "url": "https://everydayailabs.gumroad.com/l/ColdOutreachBundle",
-    "image": "",
+    "image": "https://public-files.gumroad.com/qbir21vditrk3rxk7ry4ug0kaidw",
     "badge": "",
-    "featured": false
+    "featured": false,
+    "hidden": false
   },
   {
     "id": "coping-strategies-for-anxiety",
